@@ -73,13 +73,7 @@ module.exports = new Account();
     
     cy.scrollTo("top");
     
-    cy.get("button")
-      .contains("সাবমিট")
-      .scrollIntoView({
-        duration: 6000,
-        easing: "linear",
-        offset: { top: -600 },
-      });
+    
 
 
 

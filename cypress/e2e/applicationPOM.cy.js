@@ -3,13 +3,13 @@ import Landing from "../pages/landingpage";
 import application from "../pages/application";
 describe("test module", () => {
     it("login", () => {
-        // cy.visit("https://ehaj.hajj.gov.bd/");
+
         cy.visit("https://uat-ehaj.oss.net.bd/");
         Login.clickLoginMainButton();
         Login.clickLoginInnerPage();
-        Login.typeUserName("01869220854");
+        Login.typeUserName("//////////////");
         cy.wait(3000);
-        Login.typePassword("Hello@2020r");
+        Login.typePassword("//////////////");
         Login.clickNextButton();
         cy.url().should("include", "my-desk");
 

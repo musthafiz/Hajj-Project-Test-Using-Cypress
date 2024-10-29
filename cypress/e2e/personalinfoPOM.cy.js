@@ -4,15 +4,15 @@ import application from "../pages/application";
 import Personalinfo from "../pages/personalinfo";
 describe("test module", () => {
     it("login", () => {
-        // cy.visit("https://ehaj.hajj.gov.bd/");
+
         cy.visit("https://uat-ehaj.oss.net.bd/");
         Login.clickLoginMainButton();
         cy.wait(1000);
         Login.clickLoginInnerPage();
         cy.wait(1000);
-        Login.typeUserName("01869220854");
+        Login.typeUserName("...............");
         cy.wait(1000);
-        Login.typePassword("Hello@2020r");
+        Login.typePassword("...............");
         cy.wait(1000);
         Login.clickNextButton();
         cy.wait(1000);
