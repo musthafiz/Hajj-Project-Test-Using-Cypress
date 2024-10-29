@@ -10,7 +10,7 @@ npx cypress open
 ```
 npm install -D cypress-xpath
 ```
-# # Then include in your project's support file
+*Then include in your project's support file*
 
 require('cypress-xpath');
 
