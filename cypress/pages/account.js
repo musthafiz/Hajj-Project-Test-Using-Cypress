@@ -1,67 +1,68 @@
 class Account {
+  pilgrimType = "select[class='form-control input-sm']";
+  AccountHolderName = "input[placeholder='Account Holder Name']";
+  AccountNumber = "input[placeholder='Account Number']";
+  BankName = "(//span[@id='select2--container'])[1]";
+  BankNameField = "(//ul[@id='select2--results'])[1]";
+  BranchDistrict = "(//span[@id='select2--container'])[2]";
+  BranchDistrictField = "(//ul[@id='select2--results'])[1]";
+  Branch =
+    "(//span[normalize-space()='Select one']//span[@id='select2--container'])[1]";
+  BranchField = "input[role='searchbox']";
+  photo = "input[type=file]";
+  imgBtn = "button";
+  nextpage = "button";
 
-    pilgrimType = "select[class='form-control input-sm']"
-    AccountHolderName = "input[placeholder='Account Holder Name']"
-    AccountNumber = "input[placeholder='Account Number']"
-    BankName = "(//span[@id='select2--container'])[1]"
-    BankNameField = "(//ul[@id='select2--results'])[1]"
-    BranchDistrict = "(//span[@id='select2--container'])[2]"
-    BranchDistrictField = "(//ul[@id='select2--results'])[1]"
-    Branch = "(//span[normalize-space()='Select one']//span[@id='select2--container'])[1]"
-    BranchField = "input[role='searchbox']"
-    photo = 'input[type=file]';
-    nextpage = "button"
+  selectpilgrimType(Pilgrimown) {
+    cy.get(this.pilgrimType).select(Pilgrimown);
+  }
 
+  clickAccountHolderName() {
+    cy.get(this.AccountHolderName).click();
+  }
 
-    selectpilgrimType(Pilgrimown) {
-        cy.get(this.pilgrimType).select(Pilgrimown);
-    }
+  typeAccountNumber(accnumber) {
+    cy.get(this.AccountNumber).type(accnumber);
+  }
 
-    clickAccountHolderName() {
-        cy.get(this.AccountHolderName).click();
-    }
+  clickBankName() {
+    cy.xpath(this.BankName).click();
+  }
+  containsBankNameField(bankName) {
+    cy.xpath(this.BankNameField).contains(bankName).scrollIntoView().click();
+  }
 
-    typeAccountNumber(accnumber) {
-        cy.get(this.AccountNumber).type(accnumber);
-    }
+  clickBranchDistrict() {
+    cy.xpath(this.BranchDistrict).click();
+  }
 
+  containsBranchDistrictField(NOAKHALI) {
+    cy.xpath(this.BranchDistrictField)
+      .contains(NOAKHALI)
+      .scrollIntoView()
+      .click();
+  }
 
-    clickBankName() {
-        cy.xpath(this.BankName).click();
-    }
-    containsBankNameField(bankName) {
-        cy.xpath(this.BankNameField).contains(bankName).scrollIntoView().click();
-    }
+  clickBranch() {
+    cy.xpath(this.Branch).click();
+  }
 
+  typeBranchField(CHOWMUHANI) {
+    cy.get(this.BranchField).type(`${CHOWMUHANI}{enter}`);
+  }
 
-    clickBranchDistrict() {
-        cy.xpath(this.BranchDistrict).click();
-    }
-
-    containsBranchDistrictField(NOAKHALI) {
-        cy.xpath(this.BranchDistrictField).contains(NOAKHALI).scrollIntoView().click();
-    }
-
-    clickBranch() {
-        cy.xpath(this.Branch).click();
-    }
-
-    typeBranchField(CHOWMUHANI) {
-        cy.get(this.BranchField).type(`${CHOWMUHANI}{enter}`);
-    }
-
-    selectFilephoto(file) {
-        cy.get(this.photo).selectFile(`cypress/fixtures/${file}`, { force: true });
-    }
-    clicknextpage() {
-        cy.get(this.nextpage).contains("পরবর্তী").click();
-    }
-
+  selectFilephoto(file) {
+    cy.get(this.photo).selectFile(`cypress/fixtures/${file}`, { force: true });
+  }
+  clickimgBtn() {
+    cy.get(this.imgBtn).contains("Save").click();
+  }
+  clicknextpage() {
+    cy.get(this.nextpage).contains("পরবর্তী").click();
+  }
 }
 
-
 module.exports = new Account();
-
 
 /*
 
