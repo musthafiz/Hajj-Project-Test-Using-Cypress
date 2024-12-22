@@ -6,13 +6,14 @@ import Address from "../pages/address";
 import Account from "../pages/account";
 import Submit from "../pages/submit";
 import Data from "./data";
+
 describe("test module", () => {
   const data = new Data();
   const testData = data.getApplicationData();
+
   testData.forEach(
     ({
       birthdata,
-      nidNumber,
       nameBangla,
       nameEnglish,
       fatherName,
@@ -36,25 +37,31 @@ describe("test module", () => {
         Login.clickLoginInnerPage();
         Login.typeUserName("01303937998");
         cy.wait(1000);
-        Login.typePassword("Hello@2020t");
+        Login.typePassword("Hello@2020y");
         Login.clickNextButton();
         cy.wait(3000);
         Landing.clickPreRegistration();
-        cy.wait(2000);
-        for (let i = 0; i <= 5; i++) {
+        cy.wait(3000);
+
+        for (let i = 0; i <= 3; i++) {
+          // Dynamically generate a new NID number for each iteration
+          const fixedPart = "40150";
+          const randomPart = Math.floor(10000 + Math.random() * 90000);
+          const nidNumber = fixedPart + randomPart;
+
           Landing.clickApplication();
-          cy.wait(2000);
+          cy.wait(3000);
           application.clicknewPilgrimAdd();
-          cy.wait(1000);
+          cy.wait(3000);
           application.clickgenderFemale();
-          cy.wait(1000);
+          cy.wait(3000);
           application.clickgenderMale();
-          cy.wait(1000);
+          cy.wait(3000);
           application.typebirthDate(birthdata);
-          cy.wait(1000);
+          cy.wait(3000);
           application.clickidentityType();
           cy.wait(1000);
-          application.typenidNumber(nidNumber);
+          application.typenidNumber(nidNumber); // Use the dynamically generated NID number
           cy.wait(1000);
           application.clicknext();
           cy.wait(1000);
